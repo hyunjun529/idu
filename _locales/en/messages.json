@@ -1,0 +1,12 @@
+{
+  "name": {
+    "message": "TEST?",
+    "description": "TEST Description",
+    "placeholders": {
+      "placeholder_name": {
+        "content": "A string to be placed within the message.",
+        "example": "Translator-aimed example of the placeholder string."
+      }
+    }
+  }
+}
