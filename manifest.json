@@ -4,7 +4,7 @@
   "name": "Image Downloader - URL Base",
   "default_locale": "ko",
   "description": "URL Base Image downloader",
-  "version": "0.0.1",
+  "version": "0.0.2",
 
   "browser_action": {
     "default_icon": "yuka.png",
@@ -12,7 +12,5 @@
     "default_title": "Start Image Download"
   },
   "author": "hyunjun529@gmail.com",
-  "permissions": [
-    "activeTab"
-  ]
+  "permissions": ["downloads", "<all_urls>"]
 }
