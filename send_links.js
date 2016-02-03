@@ -1,6 +1,6 @@
-var links = [].slice.apply(document.getElementsByTagName('a'));
+var links = [].slice.apply(document.getElementsByTagName('img'));
 links = links.map(function(element) {
-  var href = element.href;
+  var href = element.src;
   var hashIndex = href.indexOf('#');
   if (hashIndex >= 0) {
     href = href.substr(0, hashIndex);

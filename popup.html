@@ -61,9 +61,33 @@
         text-align: center;
         vertical-align: middle;
       }
-      #list .item img{
-        height: 64px;
-      }
+		
+		#list .row{
+			height: 100px;
+			width: 100%;
+		}
+		#list .col-chk,
+		#list .col-txt,
+		#list .col-img{
+			float: left;
+			height: 100px;
+			line-height: 100px;
+		}
+		#list .col-chk{
+			width: 20px;
+		}
+		#list .col-txt{
+			width: 180px;
+			text-overflow: ellipsis;
+			overflow-x: hidden;
+		}
+		#list .col-img{
+			text-align: center;
+			width: 250px;
+		}
+		#list .col-img img{
+			height: 100px;
+		}
 
       #btns{
         height: 40px;
