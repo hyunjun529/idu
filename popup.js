@@ -55,7 +55,7 @@ window.onload = function() {
     chrome.tabs.query({active: true, windowId: currentWindow.id},
                       function(activeTabs) {
       chrome.tabs.executeScript(
-        activeTabs[0].id, {file: 'send_links.js', allFrames: true});
+        activeTabs[0].id, {file: 'extract_imageURLs.js', allFrames: true});
     });
   });
 };
