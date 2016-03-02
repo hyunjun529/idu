@@ -1,153 +1,45 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
-  <head>
-	<meta charset="utf-8">
-    <title>Image Downloader</title>
-    <style>
-      *{
-        margin: 0;
-        padding: 0;
-      }
-      body{
-        width: 450px;
-        height: 600px;
-        border: none;
-      }
-      header{
-        height: 80px;
-      }
-      header img{
-        margin: 8px 0;
-        width: 64px;
-        height: 64px;
-        vertical-align: middle;
-      }
-      header h1{
-        display: inline-block;
-        font-size: 12px;
-      }
+<head>
+  <meta charset="utf-8">
+  <title>Image Downloader</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script src="js/popup.js"></script>
+</head>
+<body>
 
-      #setup,
-      #list,
-      #btns{
-        display: block;
-        width: 100%;
-      }
-      #setup{
-        height: 80px;
-        background-color: whitesmoke;
-      }
-      #setup .frm-field{
-        margin-left: 20px;
-        line-height: 25px;
-      }
+  <header>
+    <img src="img/yuka.png">
+    <h1>url base image downloader</h1>
+  </header>
 
-      #list{
-        height: 400px;
-        background-color: lightgray;
-        overflow: scroll;
-      }
-      #list .item{
-        float: left;
-        margin: 5px;
-        height: 60px;
-        width: 60px;
-        background-color: gray;
-        text-align: center;
-        vertical-align: middle;
-      }
-		
-		#list .row{
-			height: 100px;
-			width: 100%;
-		}
-		#list .col-chk,
-		#list .col-txt,
-		#list .col-img{
-			float: left;
-			height: 100px;
-			line-height: 100px;
-		}
-		#list .col-chk{
-			width: 20px;
-		}
-		#list .col-txt{
-			width: 180px;
-			text-overflow: ellipsis;
-			overflow-x: hidden;
-		}
-		#list .col-img{
-			text-align: center;
-			width: 250px;
-		}
-		#list .col-img img{
-			height: 100px;
-		}
-
-      #btns{
-        height: 40px;
-        line-height: 40px;
-        background-color: darkgray;
-        text-align: center;
-      }
-      #btns button{
-        width: 90%;
-        height: 30px;
-      }
-    </style>
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-    <script src="popup.js"></script>
-  </head>
-  <body>
-
-    <header>
-      <img src="yuka.png">
-      <h1>url base image downloader</h1>
-    </header>
-
-    <div id="setup">
-      <div class="frm-field">
-        <label>URL : </label>
-        <select>
-          <option>1</option>
-          <option>1</option>
-          <option>1</option>
-        </select>
-      </div>
-
-      <div class="frm-field">
-        <label>Download Path : </label>
-        <input type="text" placeholder="URL 분류">
-      </div>
-
-      <div class="frm-field">
-        <label>Filter : </label>
-        <input type="text" placeholder="">
-      </div>
-
-      <div class="frm-field">
-        <label>ETC : </label>
-        <input type="text" placeholder="">
-      </div>
+  <div id="setup">
+    <div class="frm-field">
+      <label>URL : </label>
+      <select>
+        <option>1</option>
+        <option>1</option>
+        <option>1</option>
+      </select>
     </div>
 
-    <div id="list">
+    <div class="frm-field">
+      <label>Download Path : </label>
+      <input type="text" placeholder="URL 분류">
     </div>
 
-    <div id="btns">
-      <button>DOWNLOAD ALL</button>
+    <div class="frm-field">
+      <label>Filter : </label>
+      <input type="text" placeholder="">
     </div>
+  </div>
 
-  </body>
+  <div id="list">
+  </div>
+
+  <div id="btns">
+    <button>DOWNLOAD ALL</button>
+  </div>
+
+</body>
 </html>
-

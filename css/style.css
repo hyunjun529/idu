@@ -1,0 +1,91 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  width: 450px;
+  height: 600px;
+  border: none;
+}
+header{
+  height: 80px;
+}
+header img{
+  margin: 8px 0;
+  width: 64px;
+  height: 64px;
+  vertical-align: middle;
+}
+header h1{
+  display: inline-block;
+  font-size: 12px;
+}
+
+#setup,
+#list,
+#btns{
+  display: block;
+  width: 100%;
+}
+#setup{
+  height: 80px;
+  background-color: whitesmoke;
+}
+#setup .frm-field{
+  margin-left: 20px;
+  line-height: 25px;
+}
+
+#list{
+  height: 400px;
+  background-color: lightgray;
+  overflow: scroll;
+}
+#list .item{
+  float: left;
+  margin: 5px;
+  height: 60px;
+  width: 60px;
+  background-color: gray;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#list .row{
+  height: 100px;
+  width: 25%;
+  float: left;
+}
+#list .col-chk,
+#list .col-txt,
+#list .col-img{
+  float: left;
+  height: 100px;
+  line-height: 100px;
+}
+#list .col-chk{
+  width: 20px;
+}
+#list .col-txt{
+  width: 180px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+#list .col-img{
+  text-align: center;
+  width: 100%;
+}
+#list .col-img img{
+  height: 100px;
+}
+
+#btns{
+  height: 40px;
+  line-height: 40px;
+  background-color: darkgray;
+  text-align: center;
+}
+#btns button{
+  width: 90%;
+  height: 30px;
+}
