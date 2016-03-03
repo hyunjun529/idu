@@ -1,0 +1,32 @@
+{
+  "name": "idu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "popup.html",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "jsdom": "^8.1.0",
+    "should": "^8.2.2",
+    "mocha-jsdom": "^1.1.0",
+    "chai": "^3.5.0",
+    "sinon-chrome": "^1.1.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyunjun529/idu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyunjun529/idu/issues"
+  },
+  "homepage": "https://github.com/hyunjun529/idu#readme"
+}

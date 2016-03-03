@@ -1,15 +1,16 @@
 {
   "manifest_version": 2,
 
-  "name": "Image Downloader - URL Base",
+  "name": "Image Downloader using URL",
   "default_locale": "ko",
   "description": "URL Base Image downloader",
   "version": "0.0.2",
+  "options_page": "options.html",
 
   "browser_action": {
-    "default_icon": "yuka.png",
+    "default_icon": "img/yuka.png",
     "default_popup": "popup.html",
-    "default_title": "Start Image Download"
+    "default_title": "nya"
   },
   "author": "hyunjun529@gmail.com",
   "permissions": ["downloads", "<all_urls>"]
