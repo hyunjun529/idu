@@ -4,8 +4,51 @@
   <meta charset="utf-8">
   <title>Mocha Tests</title>
   <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+  <div id="wp-dummy">
+    <h1>Test HTML</h1>
+    <div>
+      <h2>Img Tag</h2>
+      <ul>
+        <li><img src="res/reimu.png"></li>
+        <li><img src="res/marisa.jpg"></li>
+        <li><img src="res/alice.gif"></li>
+        <li><img src="res/udon.jpeg"></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Video Tag</h2>
+      <ul>
+        <li>
+          <video controls>
+            <source src="res/small.mp4" type="video/mp4">
+          </video>
+        </li>
+        <li>
+          <video controls>
+            <source src="res/small.webm" type="video/webm">
+          </video>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>CSS Prop</h2>
+      <ul>
+        <li>
+          <div class="b-t-png"></div>
+          <div class="b-t-jpg"></div>
+          <div class="b-t-gif"></div>
+          <div class="b-t-jpeg"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
   <div id="mocha"></div>
   <script src="../node_modules/mocha/mocha.js"></script>
   <script src="../node_modules/chai/chai.js"></script>
@@ -17,5 +60,6 @@
   <script src="../js/extractor.js" data-cover></script>
   <script src="../js/popup.js" data-cover></script>
   <script src="test.js"></script>
+
 </body>
 </html>

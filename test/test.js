@@ -22,3 +22,57 @@ describe('Is Even Tests', function() {
     expect(isEven(77)).to.be.false;
   });
 });
+
+describe('Extract HTML Tag', function(){
+  var res = imgTagExtraction();
+  it('extract .png', function(){
+  });
+  it('extract .jpg', function(){
+
+  });
+  it('extract .gif', function(){
+
+  });
+  it('extract .jpeg', function(){
+
+  });
+});
+
+describe('Extract Video Tag', function(){
+  it('extract .mp4', function(){
+
+  });
+  it('extract .webm', function(){
+
+  });
+});
+
+describe('Extract CSS Prop', function(){
+  it('extract ', function(){
+
+  });
+  it('extract ', function(){
+
+  });
+  it('extract ', function(){
+
+  });
+  it('extract ', function(){
+
+  });
+  it('extract ', function(){
+
+  });
+  it('filter initial', function(){
+
+  });
+  it('filter inherit', function(){
+
+  });
+  it('filter ', function(){
+
+  });
+  it('filter ', function(){
+
+  });
+});

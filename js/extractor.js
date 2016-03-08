@@ -1,4 +1,4 @@
-var imgTagExtraction = function(){
+function imgTagExtraction(){
   var tags = [].slice.apply(document.getElementsByTagName('img'));
 
   tags = tags.map(function(element) {
@@ -14,7 +14,7 @@ var imgTagExtraction = function(){
   return tags;
 }
 
-var videoTagExtraction = function(){
+ function videoTagExtraction(){
   var tags = [].slice.apply(document.getElementsByTagName('video'));
 
   tags = tags.map(function(element) {
@@ -30,7 +30,7 @@ var videoTagExtraction = function(){
   return tags;
 }
 
-var cssBackgroundExtraction = function(){
+function cssBackgroundExtraction(){
   var links = [];
   for (var i = 0; i < document.styleSheets.length; i++) {
     var cssRules = document.styleSheets[i].cssRules;
