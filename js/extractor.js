@@ -1,5 +1,7 @@
 function imgTagExtraction(){
-  var tags = [].slice.apply(document.getElementsByTagName('img'));
+  var tags = Array.from(document.querySelectorAll('img'));
+
+  // map 리펙토링 가능
 
   tags = tags.map(function(element) {
     var href = element.src;
@@ -15,10 +17,13 @@ function imgTagExtraction(){
 }
 
  function videoTagExtraction(){
-  var tags = [].slice.apply(document.getElementsByTagName('video'));
+  var tags = Array.from(document.querySelectorAll('video'));
 
   tags = tags.map(function(element) {
     var href = element.src;
+    if(!href){
+      href = element.getElementsByTagName("source")[0].src;
+    }
     var hashIndex = href.indexOf('#');
     if (hashIndex >= 0) {
       href = href.substr(0, hashIndex);
@@ -47,15 +52,9 @@ function cssBackgroundExtraction(){
   }
   return links;
 }
+
 var res = imgTagExtraction()
 .concat(cssBackgroundExtraction())
 .concat(videoTagExtraction());
 
 chrome.extension.sendRequest(res);
-
-//--
-
-function isEven(num) {
-  if (num%2 !== 0) return false;
-  return true;
-}

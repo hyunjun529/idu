@@ -1,54 +1,54 @@
 var expect = chai.expect;
 var should = chai.should();
 
-describe('Compare Numbers', function() {
-  it('1 should equal 1', function() {
-    expect(1).to.equal(1);
-  });
-  it('2 should be greater than 1', function() {
-    expect(2).to.be.greaterThan(1);
-  });
-});
+describe('Extract Img Tag', function(){
+  
+  const extractor = {
+    res : imgTagExtraction(),
+    check : (str => res.find(e => e.search(str) >= 0))
+  };
 
-describe('Is Even Tests', function() {
-  it('Should always return a boolean', function() {
-    expect(isEven(2)).to.be.a('boolean');
+  it('extract .png to Img Tag', function(){
+    should.exist(extractor.check('.png'));
   });
-  it('Calling isEven(76) sould return true.', function() {
-    expect(isEven(76)).to.be.true;
+  
+  it('extract .jpg to Img Tag', function(){
+    should.exist(extractor.check('.jpg'));
+  });
+  
+  it('extract .gif to Img Tag', function(){
+    should.exist(extractor.check('.gif'));
+  });
+  
+  it('extract .jpeg to Img Tag', function(){
+    should.exist(extractor.check('.jpeg'));
+  });
+  
+  it('filter location hash to URL', function(){
+    should.not.exist(extractor.check('#'));
   });
 
-  it('Calling isEven(77) sould return false.', function() {
-    expect(isEven(77)).to.be.false;
+  it('parsing relative path', function(){
+    should.exist(extractor.check('.jpg'));
   });
-});
-
-describe('Extract HTML Tag', function(){
-  var res = imgTagExtraction();
-  it('extract .png to HTML Tag', function(){
-    var target = res.find( function(e){ return (e.search('.png') < 0)?(false):(true); });
-    should.exist(target);
-  });
-  it('extract .jpg to HTML Tag', function(){
-    var target = res.find( function(e){ return (e.search('.jpg') < 0)?(false):(true); });
-    should.exist(target);
-  });
-  it('extract .gif to HTML Tag', function(){
-    var target = res.find( function(e){ return (e.search('.gif') < 0)?(false):(true); });
-    should.exist(target);
-  });
-  it('extract .jpeg to HTML Tag', function(){
-    var target = res.find( function(e){ return (e.search('.jpeg') < 0)?(false):(true); });
-    should.exist(target);
+  
+  it('how to twitter:large img?', function(){
+    // no answer
   });
 });
 
 describe('Extract Video Tag', function(){
-  it('extract .mp4 to Video Tag', function(){
 
+  var res = videoTagExtraction();
+
+  it('extract .mp4 to Video Tag has Source Tag', function(){
+    var target = res.find( function(e){ return (e.search('.mp4') < 0)?(false):(true); });
+    should.exist(target);
   });
-  it('extract .webm to Video Tag', function(){
 
+  it('extract .webm to Video Tag has src attr', function(){
+    var target = res.find( function(e){ return (e.search('.webm') < 0)?(false):(true); });
+    should.exist(target);
   });
 });
 

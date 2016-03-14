@@ -46,7 +46,6 @@
     for (var index in links) {
       allLinks.push(links[index]);
     }
-    allLinks.sort();
     visibleLinks = allLinks;
     showLinks();
   });
