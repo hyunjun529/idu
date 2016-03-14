@@ -1,2 +1,55 @@
 #wp-dummy{
 }
+
+#wp-dummy ul{
+  height: 100px;
+}
+
+#ul-img li,
+#ul-video li,
+#ul-css li{
+  list-style: none;
+  float: left;
+  margin: auto 10px;
+}
+
+#ul-video video{
+  height: 90px;
+}
+
+#ul-css li div{
+  display: block;
+  height: 64px;
+  width: 64px;
+  background-image: url("../res/reimu.png");
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+#ul-css .b-t-png{
+  background-image: url("/test/res/reimu.png");
+}
+#ul-css .b-t-jpg{
+  background-image: url("/test/res/marisa.jpg");
+}
+#ul-css .b-t-gif{
+  background-image: url("/test/res/alice.gif");
+}
+#ul-css .b-t-jpeg{
+  background-image: url("/test/res/udon.jpeg");
+}
+#ul-css .b-t-inherit{
+  background-image: inherit;
+}
+#ul-css .b-t-initial{
+  background-image: initial;
+}
+#ul-css .b-t-relative-path{
+  background-image: url("../res/alice.gif");
+}
+#ul-css .b-t-without-root-url{
+  background-image: url("/test/res/udon.jpeg");
+}
+#ul-css .b-t-color{
+  background-image: antiquewhite;
+}

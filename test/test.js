@@ -25,54 +25,59 @@ describe('Is Even Tests', function() {
 
 describe('Extract HTML Tag', function(){
   var res = imgTagExtraction();
-  it('extract .png', function(){
+  it('extract .png to HTML Tag', function(){
+    var target = res.find( function(e){ return (e.search('.png') < 0)?(false):(true); });
+    should.exist(target);
   });
-  it('extract .jpg', function(){
-
+  it('extract .jpg to HTML Tag', function(){
+    var target = res.find( function(e){ return (e.search('.jpg') < 0)?(false):(true); });
+    should.exist(target);
   });
-  it('extract .gif', function(){
-
+  it('extract .gif to HTML Tag', function(){
+    var target = res.find( function(e){ return (e.search('.gif') < 0)?(false):(true); });
+    should.exist(target);
   });
-  it('extract .jpeg', function(){
-
+  it('extract .jpeg to HTML Tag', function(){
+    var target = res.find( function(e){ return (e.search('.jpeg') < 0)?(false):(true); });
+    should.exist(target);
   });
 });
 
 describe('Extract Video Tag', function(){
-  it('extract .mp4', function(){
+  it('extract .mp4 to Video Tag', function(){
 
   });
-  it('extract .webm', function(){
+  it('extract .webm to Video Tag', function(){
 
   });
 });
 
 describe('Extract CSS Prop', function(){
-  it('extract ', function(){
+  it('extract .png to CSS', function(){
 
   });
-  it('extract ', function(){
+  it('extract .jpg to CSS', function(){
 
   });
-  it('extract ', function(){
+  it('extract .gif to CSS', function(){
 
   });
-  it('extract ', function(){
+  it('extract .jpeg to CSS', function(){
 
   });
-  it('extract ', function(){
+  it('filter inherit to CSS', function(){
 
   });
-  it('filter initial', function(){
+  it('filter initial to CSS', function(){
 
   });
-  it('filter inherit', function(){
+  it('complete URL to relative path', function(){
 
   });
-  it('filter ', function(){
+  it('complete URL to withour root url ', function(){
 
   });
-  it('filter ', function(){
+  it('filter color', function(){
 
   });
 });
