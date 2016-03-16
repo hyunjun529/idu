@@ -8,33 +8,39 @@ describe('Extract Img Tag', function(){
     check : (str => res.find(e => e.search(str) >= 0))
   };
 
-  it('extract .png to Img Tag', function(){
-    should.exist(extractor.check('.png'));
+  describe('check list of extracting tags', function(){
+    it('extract .png to Img Tag', function(){
+      should.exist(extractor.check('.png'));
+    });
+    
+    it('extract .jpg to Img Tag', function(){
+      should.exist(extractor.check('.jpg'));
+    });
+    
+    it('extract .gif to Img Tag', function(){
+      should.exist(extractor.check('.gif'));
+    });
+    
+    it('extract .jpeg to Img Tag', function(){
+      should.exist(extractor.check('.jpeg'));
+    });
   });
-  
-  it('extract .jpg to Img Tag', function(){
-    should.exist(extractor.check('.jpg'));
-  });
-  
-  it('extract .gif to Img Tag', function(){
-    should.exist(extractor.check('.gif'));
-  });
-  
-  it('extract .jpeg to Img Tag', function(){
-    should.exist(extractor.check('.jpeg'));
-  });
-  
-  it('filter location hash to URL', function(){
-    should.not.exist(extractor.check('#'));
+    
+  describe('exception handling extracted url from src', function(){
+    it('filter location hash to URL', function(){
+      should.not.exist(extractor.check('#'));
+    });
+
+    it('parsing relative path', function(){
+      should.exist(extractor.check('.jpg'));
+    });
+    
+    it('how to twitter:large img?', function(){
+      // twitter's img thumb path is so exceptional
+      // ex) :large -> .jpg-large
+    });
   });
 
-  it('parsing relative path', function(){
-    should.exist(extractor.check('.jpg'));
-  });
-  
-  it('how to twitter:large img?', function(){
-    // no answer
-  });
 });
 
 describe('Extract Video Tag', function(){
