@@ -9,6 +9,7 @@ describe('Extract Img Tag', function(){
   };
 
   describe('check list of extracting tags', function(){
+
     it('extract .png to Img Tag', function(){
       should.exist(extractor.check('.png'));
     });
@@ -27,6 +28,7 @@ describe('Extract Img Tag', function(){
   });
     
   describe('exception handling extracted url from src', function(){
+
     it('filter location hash to URL', function(){
       should.not.exist(extractor.check('#'));
     });
@@ -35,9 +37,7 @@ describe('Extract Img Tag', function(){
       should.exist(extractor.check('.jpg'));
     });
     
-    it('how to twitter:large img?', function(){
-      // twitter's img thumb path is so exceptional
-      // ex) :large -> .jpg-large
+    xit('twitter:large img; PENDING: twitter img thumb path is so exceptional', function(){
     });
   });
 
@@ -45,16 +45,20 @@ describe('Extract Img Tag', function(){
 
 describe('Extract Video Tag', function(){
 
-  var res = videoTagExtraction();
+  const extractor = {
+    res : videoTagExtraction(),
+    check : (str => res.find(e => e.search(str) >= 0))
+  };
 
-  it('extract .mp4 to Video Tag has Source Tag', function(){
-    var target = res.find( function(e){ return (e.search('.mp4') < 0)?(false):(true); });
-    should.exist(target);
-  });
+  describe('check list of extracting tags', function(){
 
-  it('extract .webm to Video Tag has src attr', function(){
-    var target = res.find( function(e){ return (e.search('.webm') < 0)?(false):(true); });
-    should.exist(target);
+    it('extract .mp4 to Video Tag has Source Tag', function(){
+      should.exist(extractor.check('.mp4'));
+    });
+
+    it('extract .webm to Video Tag has src attr', function(){
+      should.exist(extractor.check('.webm'));
+    });
   });
 });
 

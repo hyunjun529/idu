@@ -1,22 +1,17 @@
 function imgTagExtraction(){
+
   var tags = Array.from(document.querySelectorAll('img'));
 
   // map 리펙토링 가능
+  tags = tags.map(e => e.src.split("#")[0]);
 
-  tags = tags.map(function(element) {
-    var href = element.src;
-    var hashIndex = href.indexOf('#');
-    if (hashIndex >= 0) {
-      href = href.substr(0, hashIndex);
-    }
-    return href;
-  });
   tags = tags.filter(function(val){ return (val != '')?(true):(false); });
   tags = tags.filter(function(val, key, ary){ return ary.indexOf(val) == key; });
   return tags;
 }
 
  function videoTagExtraction(){
+
   var tags = Array.from(document.querySelectorAll('video'));
 
   tags = tags.map(function(element) {
@@ -36,7 +31,9 @@ function imgTagExtraction(){
 }
 
 function cssBackgroundExtraction(){
+  
   var links = [];
+
   for (var i = 0; i < document.styleSheets.length; i++) {
     var cssRules = document.styleSheets[i].cssRules;
     if (cssRules) {
