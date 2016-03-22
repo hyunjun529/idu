@@ -1,44 +1,45 @@
+var extractedURL = [];
+
 function imgTagExtraction(){
-
-  var tags = Array.from(document.querySelectorAll('img'));
-
-  // map 리펙토링 가능
+  var tags;
+  
+  tags = Array.from(document.querySelectorAll('img'));
   tags = tags.map(e => e.src.split("#")[0]);
-
-  tags = tags.filter(function(val){ return (val != '')?(true):(false); });
-  tags = tags.filter(function(val, key, ary){ return ary.indexOf(val) == key; });
+  tags = tags.filter(v => v != "");
   return tags;
 }
 
  function videoTagExtraction(){
-
-  var tags = Array.from(document.querySelectorAll('video'));
-
-  tags = tags.map(function(element) {
-    var href = element.src;
+  var tags;
+  
+  tags = Array.from(document.querySelectorAll('video'));
+  tags = tags.map(e => {
+    var href;
+    
+    href = e.src;
     if(!href){
-      href = element.getElementsByTagName("source")[0].src;
+      href = e.getElementsByTagName("source")[0].src;
     }
-    var hashIndex = href.indexOf('#');
-    if (hashIndex >= 0) {
-      href = href.substr(0, hashIndex);
-    }
+    href = href.split("#")[0];
     return href;
   });
-  tags = tags.filter(function(val){ return (val != '')?(true):(false); });
+  tags = tags.filter(v => v != "");
   tags = tags.filter(function(val, key, ary){ return ary.indexOf(val) == key; });
   return tags;
 }
 
 function cssBackgroundExtraction(){
-  
   var links = [];
+  var aryPathname = window.location.pathname.split('/').filter(v => v !== "");
+  var i, j;
 
-  for (var i = 0; i < document.styleSheets.length; i++) {
+  for (i = 0; i < document.styleSheets.length; i++) {
     var cssRules = document.styleSheets[i].cssRules;
+
     if (cssRules) {
-      for (var j = 0; j < cssRules.length; j++) {
+      for (j = 0; j < cssRules.length; j++) {
         var style = cssRules[j].style;
+
         if (style) {
           if(style.backgroundImage){
             links.push(style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
@@ -47,11 +48,36 @@ function cssBackgroundExtraction(){
       }
     }
   }
+
+  links = links.filter(v => v !== "initial");
+  links = links.filter(v => v !== "inherit");
+  links = links.map(e =>{
+    var cntCallingParent;
+    var fullUrl;
+
+    cntCallingParent = e.split('..').length;
+    fullUrl = window.location.protocol + "//" + window.location.host;
+    if(e.search('http') > -1) {
+      fullUrl = e;
+    } else if(e[0] === '/'){
+      fullUrl += e;
+    } else {
+      for(var i = 0; i < cntCallingParent - 1; i++){
+        fullUrl += '/' + aryPathname[i];
+      }
+      for(var i = 0; i < cntCallingParent - 1; i++){
+        e = e.substring(3);
+      }
+      fullUrl += '/' + e;
+    }
+    return fullUrl;
+  });
   return links;
 }
 
-var res = imgTagExtraction()
+extractedURL = imgTagExtraction()
 .concat(cssBackgroundExtraction())
 .concat(videoTagExtraction());
 
-chrome.extension.sendRequest(res);
+//sinon - chrome
+chrome.extension.sendRequest(extractedURL);

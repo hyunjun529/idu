@@ -3,38 +3,36 @@ var should = chai.should();
 
 describe('Extract Img Tag', function(){
 
-  const extractor = {
+  const extImg = {
     res : imgTagExtraction(),
-    check : (str => res.find(e => e.search(str) >= 0))
+    check : (str => extImg.res.find(e => e.search(str) >= 0))
   };
 
   describe('check list of extracting tags', function(){
-
     it('extract .png to Img Tag', function(){
-      extractor.check('.png').should.exist;
+      extImg.check('.png').should.exist;
     });
     
     it('extract .jpg to Img Tag', function(){
-      extractor.check('.jpg').should.exist;
+      extImg.check('.jpg').should.exist;
     });
     
     it('extract .gif to Img Tag', function(){
-      extractor.check('.gif').should.exist;
+      extImg.check('.gif').should.exist;
     });
     
     it('extract .jpeg to Img Tag', function(){
-      extractor.check('.jpeg').should.exist;
+      extImg.check('.jpeg').should.exist;
     });
   });
 
   describe('exception handling extracted url from src', function(){
-
     it('filter location hash to URL', function(){
-      should.not.exist(extractor.check('#'));
+      should.not.exist(extImg.check('#'));
     });
 
     it('parsing relative path', function(){
-      extractor.check('.jpg').should.exist;
+      extImg.check('.jpg').should.exist;
     });
     
     xit('twitter:large img; PENDING: twitter img thumb path is so exceptional', function(){
@@ -45,69 +43,72 @@ describe('Extract Img Tag', function(){
 
 describe('Extract Video Tag', function(){
 
-  const extractor = {
+  const extVideo = {
     res : videoTagExtraction(),
-    check : (str => res.find(e => e.search(str) >= 0))
+    check : (str => extVideo.res.find(e => e.search(str) >= 0))
   };
 
   describe('check list of extracting tags', function(){
-
     it('extract .mp4 to Video Tag has Source Tag', function(){
-      extractor.check('.mp4').should.exist;
+      extVideo.check('.mp4').should.exist;
     });
 
     it('extract .webm to Video Tag has src attr', function(){
-      extractor.check('.webm').should.exist;
+      extVideo.check('.webm').should.exist;
     });
   });
 });
 
 describe('Extract CSS Prop', function(){
 
-  const extractor = {
+  const extCSS = {
     res : cssBackgroundExtraction(),
-    check : (str => res.find(e => e.search(str) >= 0))
+    check : (str => extCSS.res.find(e => e.search(str) >= 0))
   };
 
   describe('check list of extracting tags', function(){
-    
+
     it('extract .png to CSS', function(){
-      extractor.check('.png').should.exist;
+      extCSS.check('.png').should.exist;
     });
 
     it('extract .jpg to CSS', function(){
-      extractor.check('.jpg').should.exist;
+      extCSS.check('.jpg').should.exist;
     });
     
     it('extract .gif to CSS', function(){
-      extractor.check('.gif').should.exist;
+      extCSS.check('.gif').should.exist;
     });
     
     it('extract .jpeg to CSS', function(){
-      extractor.check('.jpeg').should.exist;
+      extCSS.check('.jpeg').should.exist;
     });    
   });
 
   describe('is removed property that not formated url?', function(){
-    
+
     it('filter inherit to CSS', function(){
-      should.not.exist(extractor.check('inherit'));
+      should.not.exist(extCSS.check('inherit'));
     });
     
     it('filter initial to CSS', function(){
-      should.not.exist(extractor.check('initial'));
+      should.not.exist(extCSS.check('initial'));
     });
-    
+
     it('complete URL to relative path', function(){
-      should.not.exist(extractor.check('..'));
+      should.not.exist(extCSS.check('\\.\\.'));
     });
-    
-    it('complete URL to withour root url ', function(){
-      var hasNotHTTP = extractor.res.map(e => e.search("http") !== -1);
+
+    it('complete URL to withour root url', function(){
+      var hasNotHTTP = extCSS.res.map(e => e.search("http") !== -1);
       hasNotHTTP.should.not.contain(false);
     });
 
-    it('filter color', function(){
+    xit('filter color; PENDING: this case is not found', function(){
+
+    });
+
+    xit('already complete URL; PENDING: itsuka...', function(){
 
     });
   });

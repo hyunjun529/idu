@@ -9,6 +9,7 @@
   "dependencies": {
     "chai": "^3.5.0",
     "should": "^8.2.2",
+    "sinon-chrome": "^1.1.2"
   },
   "devDependencies": {
     "mocha": "^2.4.5"
