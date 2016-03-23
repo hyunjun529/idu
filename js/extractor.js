@@ -79,5 +79,4 @@ extractedURL = imgTagExtraction()
 .concat(cssBackgroundExtraction())
 .concat(videoTagExtraction());
 
-//sinon - chrome
 chrome.extension.sendRequest(extractedURL);
