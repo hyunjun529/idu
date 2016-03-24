@@ -17,7 +17,7 @@ function imgTagExtraction(){
     var href;
     
     href = e.src;
-    if(!href){
+    if(href !== ""){
       href = e.getElementsByTagName("source")[0].src;
     }
     href = href.split("#")[0];
@@ -49,6 +49,7 @@ function cssBackgroundExtraction(){
     }
   }
 
+  links = links.filter(v => v !== "none");
   links = links.filter(v => v !== "initial");
   links = links.filter(v => v !== "inherit");
   links = links.map(e =>{

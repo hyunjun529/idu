@@ -87,6 +87,11 @@ describe('Extract CSS Prop', () => {
 
   describe('is removed property that not formated url?', () => {
 
+    // none이 빠짐
+    it('filter none to CSS', () => {
+      should.not.exist(extCSS.check('none'));
+    });
+
     it('filter inherit to CSS', () => {
       should.not.exist(extCSS.check('inherit'));
     });
