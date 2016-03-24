@@ -80,4 +80,17 @@ extractedURL = imgTagExtraction()
 .concat(cssBackgroundExtraction())
 .concat(videoTagExtraction());
 
+// img url error check
+/*
+ - not valid url
+ - if url categorization is not completed, then should need more filter
+*/
+
+// create img category
+/*
+ - host
+ - path[]
+ - extension
+*/
+
 chrome.extension.sendRequest(extractedURL);
