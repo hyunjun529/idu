@@ -17,7 +17,7 @@ function imgTagExtraction(){
     var href;
     
     href = e.src;
-    if(href !== ""){
+    if(!href || href === ""){
       href = e.getElementsByTagName("source")[0].src;
     }
     href = href.split("#")[0];
