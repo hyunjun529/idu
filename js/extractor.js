@@ -42,6 +42,7 @@ function cssBackgroundExtraction(){
 
         if (style) {
           if(style.backgroundImage){
+            // delete non url prop
             links.push(style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
           }
         }
@@ -60,6 +61,8 @@ function cssBackgroundExtraction(){
     fullUrl = window.location.protocol + "//" + window.location.host;
     if(e.search('http') > -1) {
       fullUrl = e;
+    } else if(e.search('//') > -1){
+      fullUrl = window.location.protocol + e;
     } else if(e[0] === '/'){
       fullUrl += e;
     } else {
@@ -84,6 +87,8 @@ extractedURL = imgTagExtraction()
 /*
  - not valid url
  - if url categorization is not completed, then should need more filter
+ - background:url(//ssl.gstatic.com/ui/v1/dialog/close-x.png);
+ - -webkit-linear-gradient(top, rgb(77, 144, 254), rgb(53, 122, 232)
 */
 
 // create img category

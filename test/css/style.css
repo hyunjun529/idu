@@ -3,6 +3,7 @@
 
 #wp-dummy ul{
   height: 100px;
+  display: table-cell;
 }
 
 #ul-img li,
@@ -10,7 +11,8 @@
 #ul-css li{
   list-style: none;
   float: left;
-  margin: auto 10px;
+  margin: 5px 10px;
+  display: block;
 }
 
 #ul-video video{
@@ -50,6 +52,13 @@
 #ul-css .b-t-without-root-url{
   background-image: url("/test/res/udon.jpeg");
 }
+#ul-css .b-t-without-protocol-url{
+  background-image: url("//");
+}
+#ul-css .b-t-without-webkit{
+  background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+}
+
 #ul-css .b-t-color{
   background-image: antiquewhite;
 }
