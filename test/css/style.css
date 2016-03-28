@@ -53,7 +53,8 @@
   background-image: url("/test/res/udon.jpeg");
 }
 #ul-css .b-t-without-protocol-url{
-  background-image: url("//");
+  background-image: url("//en.touhouwiki.net/skins/common/images/alicelogo.png");
+  background-size: 64px;
 }
 #ul-css .b-t-without-webkit{
   background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
