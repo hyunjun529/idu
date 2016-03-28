@@ -103,11 +103,19 @@ describe('Extract CSS Prop', () => {
       should.not.exist(extCSS.check('\\.\\.'));
     });
 
-    it('complete URL to withour root url', () => {
+    it('complete URL to without root url', () => {
       var hasNotHTTP = extCSS.res.map(e => e.search("http") !== -1);
       hasNotHTTP.should.not.contain(false);
     });
 
+    it('filter not url background-image props', () => {
+      should.not.exist(extCSS.check('linear'));
+    });
+    
+    it('complete URL to without url option', () => {
+      extCSS.check('wiki').should.exist;
+    });
+    
     xit('filter prop that not URL()', () => {
       should.not.exist(extCSS.check('antiquewhite'));
     });

@@ -42,7 +42,9 @@ function cssBackgroundExtraction(){
 
         if (style) {
           if(style.backgroundImage){
-            // delete non url prop
+            if(style.backgroundImage.search('url') < 0){
+              continue;
+            }
             links.push(style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, ''));
           }
         }
