@@ -9,7 +9,7 @@ function imgTagExtraction(){
   return tags;
 }
 
- function videoTagExtraction(){
+function videoTagExtraction(){
   var tags;
   
   tags = Array.from(document.querySelectorAll('video'));
@@ -91,13 +91,29 @@ extractedURL = imgTagExtraction()
  - if url categorization is not completed, then should need more filter
  - background:url(//ssl.gstatic.com/ui/v1/dialog/close-x.png);
  - -webkit-linear-gradient(top, rgb(77, 144, 254), rgb(53, 122, 232)
-*/
+ */
+
+ function categorization(){
+
+  var jsonCategory = [];
+
+  jsonCategory = extractedURL.map(e => 
+    [{
+      url:e,
+      ext:e.match(/\w*$/)[0],
+      host:"null",
+      path:['asdf','asdf']
+    }][0]
+    );
+  
+  return jsonCategory;
+}
 
 // create img category
 /*
  - host
  - path[]
  - extension
-*/
+ */
 
-chrome.extension.sendRequest(extractedURL);
+ chrome.extension.sendRequest(extractedURL);

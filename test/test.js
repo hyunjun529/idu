@@ -127,6 +127,9 @@ describe('Extract CSS Prop', () => {
 });
 
 describe('Category URLs', () => {
+
+  const cate = categorization();
+
   describe('about host', () => {
 
     it('check complete host', () => {
@@ -139,7 +142,7 @@ describe('Category URLs', () => {
   });
 
   describe('about path', () => {
-    
+
     it('check complete path', () => {
 
     });
@@ -150,9 +153,9 @@ describe('Category URLs', () => {
   });
   
   describe('about extension', () => {
-    
-    it('check all extension', () => {
 
+    it('check all extension', () => {
+      cate.map(e=> e.ext.should.not.null );
     });
     
     it('check all extensions count', () => {
