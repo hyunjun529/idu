@@ -125,3 +125,42 @@ describe('Extract CSS Prop', () => {
     });
   });
 });
+
+describe('Category URLs', () => {
+  describe('about host', () => {
+
+    it('check complete host', () => {
+
+    });
+
+    it('check external host', () => {
+
+    });
+  });
+
+  describe('about path', () => {
+    
+    it('check complete path', () => {
+
+    });
+    
+    it('searching same paths', () => {
+
+    });
+  });
+  
+  describe('about extension', () => {
+    
+    it('check all extension', () => {
+
+    });
+    
+    it('check all extensions count', () => {
+
+    });
+    
+    it('check video or image', () => {
+
+    });
+  });
+});
