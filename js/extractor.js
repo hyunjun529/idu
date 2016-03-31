@@ -96,13 +96,14 @@ extractedURL = imgTagExtraction()
  function categorization(){
 
   var jsonCategory = [];
+  var parse_url = //; 
 
   jsonCategory = extractedURL.map(e => 
     [{
       url:e,
       ext:e.match(/\w*$/)[0],
-      host:"null",
-      path:['asdf','asdf']
+      host:e.match(/http\S*\/\/\S*?\//)[0],
+      path:e.match(/http\S*\/\/\S*?\/(\S*\/)/)[1].match(/(\S*?)(?:\/)/g).map(e=>e.slice(0,-1))
     }][0]
     );
   

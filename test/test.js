@@ -132,11 +132,15 @@ describe('Category URLs', () => {
 
   describe('about host', () => {
 
-    it('check complete host', () => {
-
+    it('check exist host', () => {
+      cate.map(e=> e.host.should.not.null)
     });
 
     it('check external host', () => {
+      cate.findIndex(e=> e.host == 'http://en.touhouwiki.net/').should.be.above(0)
+    });
+
+    xit('check complete host; PENDING: not found bug', () => {
 
     });
   });
@@ -147,6 +151,10 @@ describe('Category URLs', () => {
 
     });
     
+    it('check complete path', () => {
+
+    });
+
     it('searching same paths', () => {
 
     });
