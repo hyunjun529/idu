@@ -5,7 +5,7 @@
   var visibleLinks = [];
 
   function showLinks() {
-    visibleLinks = visibleLinks.map(e => e.url);
+    //visibleLinks = visibleLinks.map(e => e.url);
 
     var linksTable = document.getElementById('list');
     while (linksTable.children.length > 1) {
