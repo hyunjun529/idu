@@ -117,4 +117,4 @@ extractedURL = imgTagExtraction()
  - extension
  */
 
- chrome.extension.sendRequest(extractedURL);
+ chrome.extension.sendRequest(categorization());

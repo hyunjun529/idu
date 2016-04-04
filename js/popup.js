@@ -5,6 +5,8 @@
   var visibleLinks = [];
 
   function showLinks() {
+    visibleLinks = visibleLinks.map(e => e.url);
+
     var linksTable = document.getElementById('list');
     while (linksTable.children.length > 1) {
       linksTable.removeChild(linksTable.children[linksTable.children.length - 1])
@@ -59,5 +61,4 @@
         });
     });
   };
-
 }());
