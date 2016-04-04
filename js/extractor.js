@@ -17,14 +17,23 @@ function videoTagExtraction(){
     var href;
     
     href = e.src;
+    
     if(!href || href === ""){
-      href = e.getElementsByTagName("source")[0].src;
+      if(!e.getElementsByTagName("source")[0].src
+        || e.getElementsByTagName("source")[0].src === ""){
+        href = "";
+      } else {
+        href = e.getElementsByTagName("source")[0].src;
+      }
     }
+    
     href = href.split("#")[0];
+    
     return href;
   });
+  
   tags = tags.filter(v => v != "");
-  tags = tags.filter(function(val, key, ary){ return ary.indexOf(val) == key; });
+
   return tags;
 }
 
@@ -81,40 +90,11 @@ function cssBackgroundExtraction(){
   return links;
 }
 
-extractedURL = imgTagExtraction()
+extractedURL =
+imgTagExtraction()
 .concat(cssBackgroundExtraction())
-.concat(videoTagExtraction());
+//.concat(videoTagExtraction());
 
-// img url error check
-/*
- - not valid url
- - if url categorization is not completed, then should need more filter
- - background:url(//ssl.gstatic.com/ui/v1/dialog/close-x.png);
- - -webkit-linear-gradient(top, rgb(77, 144, 254), rgb(53, 122, 232)
- */
+extractedURL = extractedURL.filter((i, v) => extractedURL.indexOf(i) == v);
 
- function categorization(){
-
-  var jsonCategory = [];
-  var parse_url = //; 
-
-  jsonCategory = extractedURL.map(e => 
-    [{
-      url:e,
-      ext:e.match(/\w*$/)[0],
-      host:e.match(/http\S*\/\/\S*?\//)[0],
-      path:e.match(/http\S*\/\/\S*?\/(\S*\/)/)[1].match(/(\S*?)(?:\/)/g).map(e=>e.slice(0,-1))
-    }][0]
-    );
-  
-  return jsonCategory;
-}
-
-// create img category
-/*
- - host
- - path[]
- - extension
- */
-
- chrome.extension.sendRequest(extractedURL);
+chrome.extension.sendRequest(extractedURL);
