@@ -134,7 +134,7 @@ describe('Extract CSS Prop', () => {
 
 describe('Category URLs', () => {
 
-  const cate = categorization();
+  const cate = categorization(extractedURL);
 
   describe('about host', () => {
 

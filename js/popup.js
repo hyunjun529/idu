@@ -12,7 +12,11 @@ function categorization(extractedURL){
     object.url = e;
     object.ext = e.match(/\w*$/)[0];
     object.host = e.match(/http\S*\/\/\S*?\//)[0];
-    object.path = e.match(/http\S*\/\/\S*?\/(\S*\/)/)[1].match(/(\S*?)(?:\/)/g).map(e=>e.slice(0,-1));
+    if(e.match(/http\S*\/\/\S*?\/(\S*\/)/)){
+      object.path = e.match(/http\S*\/\/\S*?\/(\S*\/)/)[1].match(/(\S*?)(?:\/)/g).map(e=>e.slice(0,-1));
+    } else {
+      object.path = "/";
+    }
 
     return object;
   });

@@ -1,11 +1,12 @@
 var extractedURL = [];
+var regForDataImage = new RegExp(/data:image/i);
 
 function imgTagExtraction(){
   var tags;
-  
+
   tags = Array.from(document.querySelectorAll('img'));
   tags = tags.map(e => e.src.split("#")[0]);
-  tags = tags.filter(v => v != "");
+  
   return tags;
 }
 
@@ -23,7 +24,7 @@ function videoTagExtraction(){
         videoSrc = "";
       } else {
         if(e.getElementsByTagName("source")[0].hasAttribute('src'))
-        videoSrc = e.getElementsByTagName("source")[0].src;
+          videoSrc = e.getElementsByTagName("source")[0].src;
       }
     }
     
@@ -31,8 +32,6 @@ function videoTagExtraction(){
     
     return videoSrc;
   });
-  
-  tags = tags.filter(v => v != "");
 
   return tags;
 }
@@ -65,11 +64,14 @@ function cssBackgroundExtraction(){
   links = links.filter(v => v !== "initial");
   links = links.filter(v => v !== "inherit");
   links = links.map(e =>{
+    
     var cntCallingParent;
     var fullUrl;
 
     cntCallingParent = e.split('..').length;
+    
     fullUrl = window.location.protocol + "//" + window.location.host;
+    
     if(e.search('http') > -1) {
       fullUrl = e;
     } else if(e.search('//') > -1){
@@ -85,8 +87,10 @@ function cssBackgroundExtraction(){
       }
       fullUrl += '/' + e;
     }
+
     return fullUrl;
   });
+
   return links;
 }
 
@@ -94,6 +98,9 @@ extractedURL =
 imgTagExtraction()
 .concat(cssBackgroundExtraction())
 .concat(videoTagExtraction());
+
+extractedURL = extractedURL.filter(v => v != "");
+extractedURL = extractedURL.filter(v => !regForDataImage.test(v));
 
 extractedURL = extractedURL.filter((i, v) => extractedURL.indexOf(i) == v);
 
