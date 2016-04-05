@@ -14,22 +14,22 @@ function videoTagExtraction(){
   
   tags = Array.from(document.querySelectorAll('video'));
   tags = tags.map(e => {
-    var href;
+    var videoSrc;
     
-    href = e.src;
+    videoSrc = e.src;
     
-    if(!href || href === ""){
-      if(!e.getElementsByTagName("source")[0].src
-        || e.getElementsByTagName("source")[0].src === ""){
-        href = "";
+    if(!videoSrc || videoSrc === ""){
+      if(e.getElementsByTagName("source").length <= 0){
+        videoSrc = "";
       } else {
-        href = e.getElementsByTagName("source")[0].src;
+        if(e.getElementsByTagName("source")[0].hasAttribute('src'))
+        videoSrc = e.getElementsByTagName("source")[0].src;
       }
     }
     
-    href = href.split("#")[0];
+    videoSrc = videoSrc.split("#")[0];
     
-    return href;
+    return videoSrc;
   });
   
   tags = tags.filter(v => v != "");
@@ -93,7 +93,7 @@ function cssBackgroundExtraction(){
 extractedURL =
 imgTagExtraction()
 .concat(cssBackgroundExtraction())
-//.concat(videoTagExtraction());
+.concat(videoTagExtraction());
 
 extractedURL = extractedURL.filter((i, v) => extractedURL.indexOf(i) == v);
 
