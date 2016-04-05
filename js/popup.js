@@ -2,7 +2,7 @@
 var allLinks = [];
 var visibleLinks = [];
 
-function categorization(){
+function categorization(extractedURL){
 
   var jsonCategory = [];
 
@@ -21,7 +21,9 @@ function categorization(){
 }
 
 function showLinks() {
-  //visibleLinks = visibleLinks.map(e => e.url);
+
+  visibleLinks = categorization(visibleLinks);
+  visibleLinks = visibleLinks.map(e => e.url);
 
   var linksTable = document.getElementById('list');
   while (linksTable.children.length > 1) {
