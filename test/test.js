@@ -57,6 +57,12 @@ describe('Extract Video Tag', () => {
       extVideo.check('.webm').should.exist;
     });
   });
+
+  describe('check list of extracting tags', () => {
+    xit('none src video tag; PENDING: if you see this message then everything is ok', () => {
+      
+    });
+  });
 });
 
 describe('Extract CSS Prop', () => {
