@@ -4,7 +4,7 @@ var should = chai.should();
 describe('Extract Img Tag', () => {
 
   const extImg = {
-    res : imgTagExtraction(),
+    res : TheFunctionInsertedInTheChromeExtensionForExtractImageURL.extractImgTag(),
     check : (str => extImg.res.find(e => e.search(str) >= 0))
   };
 
@@ -44,7 +44,7 @@ describe('Extract Img Tag', () => {
 describe('Extract Video Tag', () => {
 
   const extVideo = {
-    res : videoTagExtraction(),
+    res : TheFunctionInsertedInTheChromeExtensionForExtractImageURL.extractVideoTag(),
     check : (str => extVideo.res.find(e => e.search(str) >= 0))
   };
 
@@ -68,7 +68,7 @@ describe('Extract Video Tag', () => {
 describe('Extract CSS Prop', () => {
 
   const extCSS = {
-    res : cssBackgroundExtraction(),
+    res : TheFunctionInsertedInTheChromeExtensionForExtractImageURL.extractCssBackgroundImageProp(),
     check : (str => extCSS.res.find(e => e.search(str) >= 0))
   };
 
@@ -134,7 +134,7 @@ describe('Extract CSS Prop', () => {
 
 describe('Category URLs', () => {
 
-  const cate = categorization(extractedURL);
+  const cate = categorization(TheFunctionInsertedInTheChromeExtensionForExtractImageURL.extractedURL);
 
   describe('about host', () => {
 

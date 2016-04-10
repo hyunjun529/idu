@@ -59,6 +59,9 @@
 #ul-css .b-t-without-url-option{
   background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
 }
+#ul-css .b-t-url-linear-both{
+  background-image:linear-gradient(transparent,transparent),url(/test/res/udon.jpeg);
+}
 
 #ul-css .b-t-color{
   background-image: antiquewhite;
